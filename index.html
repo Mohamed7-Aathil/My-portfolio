@@ -35,6 +35,9 @@
     }
     a { text-decoration: none; color: inherit; }
 
+    /* Font Awesome for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
     /* ----- animated background ----- */
     #bg-canvas {
       position: fixed;
@@ -556,40 +559,254 @@
       border-radius: 12px;
     }
 
-    /* ----- skills ----- */
+    /* ----- experience - new merged design ----- */
+    .experience-wrapper {
+      background: linear-gradient(135deg, #1a1a3e, #0f0f2a, #1a1a4e);
+      padding: 60px 48px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(124, 92, 255, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+    .exp-card {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .exp-card:hover {
+      border-color: rgba(124, 92, 255, 0.2);
+      box-shadow: 0 12px 48px rgba(124, 92, 255, 0.1);
+      transform: translateY(-4px);
+    }
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .exp-header h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .exp-header .company {
+      color: #7c5cff;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .exp-header .date {
+      color: #a8a8d0;
+      font-size: 0.9rem;
+    }
+    .exp-badge {
+      background: rgba(124, 92, 255, 0.12);
+      color: #7c5cff;
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(124, 92, 255, 0.15);
+    }
+    .exp-modules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .exp-module {
+      padding: 20px;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .exp-module:hover {
+      transform: translateY(-2px);
+    }
+    .exp-module .module-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    .exp-module .module-icon.blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+    .exp-module .module-icon.green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .exp-module .module-icon.amber { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .exp-module .module-icon.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+    .exp-module h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .exp-module p {
+      color: #a8a8d0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .exp-tech {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .exp-tech h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .exp-tech .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .exp-tech .tech-tag {
+      padding: 4px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #a8a8d0;
+      transition: all 0.3s ease;
+    }
+    .exp-tech .tech-tag:hover {
+      background: rgba(124, 92, 255, 0.1);
+      border-color: rgba(124, 92, 255, 0.2);
+      color: #fff;
+    }
+    .exp-tech .tech-tag.react { background: rgba(97, 218, 251, 0.08); color: #61dafb; }
+    .exp-tech .tech-tag.django { background: rgba(44, 83, 128, 0.08); color: #44b78b; }
+    .exp-tech .tech-tag.drf { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
+    .exp-tech .tech-tag.js { background: rgba(247, 223, 30, 0.08); color: #d9c845; }
+    .exp-tech .tech-tag.mysql { background: rgba(0, 117, 143, 0.08); color: #00758f; }
+    .exp-tech .tech-tag.sqlite {color: #0369a1;opacity: 1;}
+    .exp-tech .tech-tag.git { background: rgba(241, 80, 47, 0.08); color: #f1502f; }
+    .edu-card .tech-tag.api { background: rgba(255, 255, 255, 0.04); color: #a8a8d0; }
+
+    /* ----- skills - improved ----- */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 28px;
     }
     .skill-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
+      border-radius: 20px;
+      padding: 32px 28px;
       transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(124, 92, 255, 0.05), transparent 70%);
+      border-radius: 50%;
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+    .skill-card:hover::before {
+      transform: scale(1.5);
+    }
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .skill-card:hover::after {
+      opacity: 1;
     }
     .skill-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-8px);
       border-color: rgba(124, 92, 255, 0.2);
-      box-shadow: var(--shadow);
+      box-shadow: 0 12px 48px rgba(124, 92, 255, 0.15);
     }
-    .skill-card h3 {
-      color: var(--accent1);
-      margin-bottom: 24px;
-      font-size: 1.15rem;
-      font-weight: 700;
+    .skill-card .skill-header {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
     }
-    .skill-card h3::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .skill-card .skill-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(124, 92, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.4s ease;
+      flex-shrink: 0;
     }
-    .skill-row { margin-bottom: 18px; }
+    .skill-card:hover .skill-icon {
+      background: var(--gradient);
+      transform: scale(1.05) rotate(-5deg);
+      box-shadow: 0 4px 20px rgba(124, 92, 255, 0.3);
+    }
+    .skill-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .skill-card h3 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .skill-card .skill-count {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.04);
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-left: auto;
+      position: relative;
+      z-index: 1;
+    }
+    .skill-row {
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
     .skill-row:last-child { margin-bottom: 0; }
     .skill-label {
       display: flex;
@@ -601,20 +818,47 @@
     .skill-label b { 
       color: var(--text); 
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .skill-label b .skill-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent1);
+      margin-right: 4px;
+    }
+    .skill-label span {
+      font-weight: 600;
+      font-size: 0.85rem;
     }
     .bar-bg {
       width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.06);
+      height: 8px;
+      background: rgba(255, 255, 255, 0.04);
       border-radius: 10px;
       overflow: hidden;
+      position: relative;
+    }
+    .bar-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+      animation: shimmer 2s infinite;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
     .bar-fill {
       height: 100%;
       border-radius: 10px;
       background: var(--gradient);
       width: 0;
-      transition: width 1.2s ease;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
     .bar-fill::after {
@@ -623,10 +867,21 @@
       right: 0;
       top: 0;
       bottom: 0;
-      width: 20px;
+      width: 30px;
       background: linear-gradient(to right, transparent, rgba(255,255,255,0.2));
       border-radius: 10px;
+      animation: pulseGlow 2s ease-in-out infinite;
     }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .skill-card.frontend .skill-icon { background: rgba(124, 92, 255, 0.12); }
+    .skill-card.frontend:hover .skill-icon { background: linear-gradient(135deg, #7c5cff, #6c8cff); }
+    .skill-card.backend .skill-icon { background: rgba(0, 212, 255, 0.12); }
+    .skill-card.backend:hover .skill-icon { background: linear-gradient(135deg, #00d4ff, #00b4d8); }
+    .skill-card.tools .skill-icon { background: rgba(255, 107, 157, 0.12); }
+    .skill-card.tools:hover .skill-icon { background: linear-gradient(135deg, #ff6b9d, #ff4d6d); }
 
     /* ----- projects ----- */
     .projects-grid {
@@ -728,12 +983,6 @@
     .details-link:hover { 
       gap: 14px;
       color: var(--accent1);
-    }
-    .details-link svg {
-      transition: transform 0.3s ease;
-    }
-    .details-link:hover svg {
-      transform: translateX(4px);
     }
 
     /* ----- modals ----- */
@@ -962,7 +1211,8 @@
     @media (max-width: 1024px) {
       .about-cards,
       .skills-grid,
-      .projects-grid {
+      .projects-grid,
+      .exp-modules {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -1003,6 +1253,16 @@
       section {
         padding: 60px 20px;
       }
+      .experience-wrapper {
+        padding: 30px 20px;
+        border-radius: 16px;
+      }
+      .exp-card {
+        padding: 20px;
+      }
+      .exp-header h3 {
+        font-size: 1.3rem;
+      }
       .hero h1 {
         font-size: 2.5rem;
       }
@@ -1012,7 +1272,8 @@
       }
       .about-cards,
       .skills-grid,
-      .projects-grid {
+      .projects-grid,
+      .exp-modules {
         grid-template-columns: 1fr;
       }
       .timeline-line {
@@ -1063,8 +1324,14 @@
       .contact-form {
         padding: 20px;
       }
+      .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
@@ -1082,6 +1349,7 @@
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1171,58 +1439,283 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE  -->
+  <section id="experience">
+    <h2 class="section-title reveal">Experience</h2>
+    <div class="title-underline reveal"></div>
+    <div class="experience-wrapper">
+      
+      <p class="text-center text-blue-200 mb-8" style="color: #a8a8d0; text-align: center; margin-bottom: 28px; font-size: 1.05rem;">
+        Professional work and contributions.
+      </p>
+
+      <div class="exp-card">
+        <!-- Header -->
+        <div class="exp-header">
+          <div>
+            <h3>Full Stack Developer Intern</h3>
+            <p class="company">VDart Academy</p>
+            <p class="date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i>Jan 2026 – Apr 2026</p>
+          </div>
+          <span class="exp-badge">
+            <i class="fas fa-briefcase" style="margin-right: 6px;"></i>Internship Experience
+          </span>
+        </div>
+
+  <!-- Experience Modules -->
+        <div class="exp-modules">
+
+<!-- Frontend -->
+<div class="exp-module">
+  <div class="module-icon amber">
+    <i class="fas fa-code"></i>
+  </div>
+  <h4>Frontend Development</h4>
+  <p>
+    Developed responsive and intuitive user interfaces using React.js,
+    HTML, and CSS, with a focus on reusable components, responsive design,
+    and seamless user experience.
+  </p>
+</div>
+
+
+<!-- Backend -->
+<div class="exp-module">
+  <div class="module-icon purple">
+    <i class="fas fa-server"></i>
+  </div>
+  <h4>Backend & API Development</h4>
+  <p>
+    Developed and integrated Django REST APIs, implemented CRUD operations
+    and authentication workflows, and managed database interactions using
+    MySQL and SQLite.
+  </p>
+</div>
+
+
+<!-- SIMS -->
+<div class="exp-module">
+  <div class="module-icon blue">
+    <i class="fas fa-users-gear"></i>
+  </div>
+  <h4>Smart Intern Management System</h4>
+  <p>
+    Contributed to the development of intern management features, including
+    user profiles, records, task management, workflow processes, and
+    administrative dashboards.
+  </p>
+</div>
+
+
+<!-- DTMS -->
+<div class="exp-module">
+  <div class="module-icon green">
+    <i class="fas fa-clock"></i>
+  </div>
+  <h4>Dynamic Timesheet Management System</h4>
+  <p>
+    Developed timesheet management functionality for tracking work hours,
+    managing tasks, submitting timesheets, and supporting approval workflows
+    to improve employee productivity and operational efficiency.
+  </p>
+</div>
+
+       </div>
+
+        <!-- Technologies -->
+        <div class="exp-tech">
+  <h4>
+    <i class="fas fa-cubes" style="margin-right: 8px; color: #7c5cff;"></i>
+    Worked Technologies
+  </h4>
+
+  <div class="tech-tags">
+
+    <!-- HTML -->
+    <span class="tech-tag">
+      <i class="fab fa-html5" style="margin-right: 4px;"></i>
+      HTML
+    </span>
+
+    <!-- CSS -->
+    <span class="tech-tag">
+      <i class="fab fa-css3-alt" style="margin-right: 4px;"></i>
+      CSS
+    </span>
+
+    <!-- JavaScript -->
+    <span class="tech-tag js">
+      <i class="fab fa-js-square" style="margin-right: 4px;"></i>
+      JavaScript
+    </span>
+
+    <!-- React -->
+    <span class="tech-tag react">
+      <i class="fab fa-react" style="margin-right: 4px;"></i>
+      React.js
+    </span>
+
+    <!-- Python -->
+    <span class="tech-tag python">
+      <i class="fab fa-python" style="margin-right: 4px;"></i>
+      Python
+    </span>
+
+    <!-- Django -->
+    <span class="tech-tag django">
+      <i class="fas fa-server" style="margin-right: 4px;"></i>
+      Django
+    </span>
+
+    <!-- Django REST Framework -->
+    <span class="tech-tag drf">
+      <i class="fas fa-code" style="margin-right: 4px;"></i>
+      Django REST Framework
+    </span>
+
+    <!-- API -->
+    <span class="tech-tag api">
+      <i class="fas fa-plug" style="margin-right: 4px;"></i>
+      API
+    </span>
+
+    <!-- Authentication & Authorization -->
+    <span class="tech-tag auth">
+      <i class="fas fa-user-shield" style="margin-right: 4px;"></i>
+      Authentication & Authorization
+    </span>
+
+    <!-- CRUD Operations -->
+    <span class="tech-tag crud">
+      <i class="fas fa-database" style="margin-right: 4px;"></i>
+      CRUD Operations
+    </span>
+
+    <!-- MySQL -->
+    <span class="tech-tag mysql">
+      <i class="fas fa-database" style="margin-right: 4px;"></i>
+      MySQL
+    </span>
+
+    <!-- SQLite -->
+    <span class="tech-tag sqlite">
+      <i class="fas fa-database" style="margin-right: 4px;"></i>
+      SQLite
+    </span>
+
+    <!-- Git -->
+    <span class="tech-tag git">
+      <i class="fab fa-git-alt" style="margin-right: 4px;"></i>
+      Git
+    </span>
+
+    <!-- GitHub -->
+    <span class="tech-tag github">
+      <i class="fab fa-github" style="margin-right: 4px;"></i>
+      GitHub
+    </span>
+
+    
+  </div>
+</div>
+
+
+    </div>
+  </section>
+
   <!-- SKILLS -->
   <section id="skills">
     <h2 class="section-title reveal">My <span>Skills</span></h2>
     <div class="title-underline reveal"></div>
     <div class="skills-grid">
-      <div class="skill-card reveal">
-        <h3>⚡ Frontend</h3>
+      
+      <div class="skill-card frontend reveal">
+        <div class="skill-header">
+          <div class="skill-icon">⚡</div>
+          <h3><span>Frontend</span></h3>
+          <span class="skill-count">4 skills</span>
+        </div>
         <div class="skill-row">
-          <div class="skill-label"><b>HTML / CSS</b><span>90%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>HTML / CSS</b>
+            <span>90%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="90"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>JavaScript</b><span>85%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>JavaScript</b>
+            <span>85%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="85"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>React</b><span>80%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>React</b>
+            <span>80%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="80"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>Vite</b><span>75%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>Vite</b>
+            <span>75%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="75"></div></div>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <h3>🔧 Backend</h3>
+      <div class="skill-card backend reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🔧</div>
+          <h3><span>Backend</span></h3>
+          <span class="skill-count">2 skills</span>
+        </div>
         <div class="skill-row">
-          <div class="skill-label"><b>Python</b><span>85%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>Python</b>
+            <span>85%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="85"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>Django</b><span>80%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>Django</b>
+            <span>80%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="80"></div></div>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <h3>🗄️ Database & Tools</h3>
+      <div class="skill-card tools reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🗄️</div>
+          <h3><span>Database & Tools</span></h3>
+          <span class="skill-count">3 skills</span>
+        </div>
         <div class="skill-row">
-          <div class="skill-label"><b>MySQL</b><span>80%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>MySQL</b>
+            <span>80%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="80"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>Git</b><span>75%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>Git</b>
+            <span>75%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="75"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label"><b>REST APIs</b><span>85%</span></div>
+          <div class="skill-label">
+            <b><span class="skill-dot"></span>REST APIs</b>
+            <span>85%</span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" data-width="85"></div></div>
         </div>
       </div>
+
     </div>
   </section>
 
